@@ -15,12 +15,13 @@
       <div class="searchbar">
 
         <input v-model="inputSearch" type="text" name="" value="">
-        <button @click="searchMovie()" type="button" name="button">click</button>
+        <button @click="search()" type="button" name="button">click</button>
 
       </div>
 
       <div class="container_locandine">
 
+        <!-- film -->
         <div v-for="(film, index) in listaFilm" class="locandina">
           <!-- titoli film -->
           <div class="titolo">
@@ -39,11 +40,28 @@
             {{filmVote(index)}}
           </div>
 
-        </div>
-
-
-
       </div>
+
+      <!-- serie Tv -->
+    <div v-for="(serie, index) in listaSerieTv" class="locandina tv">
+      <!-- titoli SerieTv -->
+      <div class="titolo">
+        {{listaSerieTv[index].name}}
+      </div>
+      <!-- titoli originali SerieTv -->
+      <div class="titolo_originale">
+        {{listaSerieTv[index].original_name}}
+      </div>
+      <!-- lingua originale delle serieTv -->
+      <div class="lingua">
+        {{listaSerieTv[index].original_language}}
+      </div>
+      <!-- voti serieTv -->
+      <div class="voto">
+        {{voteTv(index)}}
+      </div>
+
+    </div>
 
     </div>
 
