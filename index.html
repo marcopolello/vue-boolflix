@@ -12,6 +12,7 @@
 
     <div id="app">
 
+      <!-- blocco di ricerca momentaneo -->
       <div class="searchbar">
 
         <input v-model="inputSearch" type="text" name="" value="">
@@ -19,6 +20,7 @@
 
       </div>
 
+      <!-- contenitore di films e serie tv -->
       <div class="container_locandine">
 
         <!-- film -->
@@ -44,28 +46,28 @@
       </div>
 
       <!-- serie Tv -->
-    <div v-for="(serie, index) in listaSerieTv" class="locandina tv">
-      <!-- titoli SerieTv -->
-      <div class="titolo">
-        {{listaSerieTv[index].name}}
-      </div>
-      <!-- titoli originali SerieTv -->
-      <div class="titolo_originale">
-        {{listaSerieTv[index].original_name}}
-      </div>
-      <!-- lingua originale delle serieTv -->
-      <div class="lingua">
-        {{listaSerieTv[index].original_language}}
-      </div>
-      <!-- voti serieTv -->
-      <div class="voto">
-        <!-- voteTv(index) -->
-        {{vote(listaSerieTv[index].vote_average)}}
+      <div v-for="(serie, index) in listaSerieTv" class="locandina tv">
+        <!-- titoli SerieTv -->
+        <div class="titolo">
+          {{listaSerieTv[index].name}}
+        </div>
+        <!-- titoli originali SerieTv -->
+        <div class="titolo_originale">
+          {{listaSerieTv[index].original_name}}
+        </div>
+        <!-- lingua originale delle serieTv -->
+        <div class="lingua">
+          {{listaSerieTv[index].original_language}}
+        </div>
+        <!-- voti serieTv -->
+        <div class="voto">
+          <!-- voteTv(index) -->
+          {{vote(listaSerieTv[index].vote_average)}}
+        </div>
+
       </div>
 
-    </div>
-
-    </div>
+    </div> 
 
     <script src="js/script.js" charset="utf-8"></script>
   </body>
