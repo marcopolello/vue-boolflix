@@ -14,12 +14,34 @@
 
       <div class="searchbar">
 
-        <input v-model="ricercaInput" type="text" name="" value="">
-        <button type="button" name="button">click</button>
+        <input v-model="inputSearch" type="text" name="" value="">
+        <button @click="searchMovie()" type="button" name="button">click</button>
 
       </div>
 
-      <div class="container_cards">
+      <div class="container_locandine">
+
+        <div v-for="(film, index) in listaFilm" class="locandina">
+          <!-- titoli film -->
+          <div class="titolo">
+            {{listaFilm[index].title}}
+          </div>
+          <!-- titoli originali film -->
+          <div class="titolo_originale">
+            {{listaFilm[index].original_title}}
+          </div>
+          <!-- lingua originale dei film -->
+          <div class="lingua">
+            {{listaFilm[index].original_language}}
+          </div>
+          <!-- voti dei film -->
+          <div class="voto">
+            {{filmVote(index)}}
+          </div>
+
+        </div>
+
+
 
       </div>
 
