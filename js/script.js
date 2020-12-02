@@ -23,13 +23,18 @@ var app = new Vue({
       })
     },
     // votoFilm / 2 e arrotondato per eccesso
-    filmVote: function (i) {
+    /* filmVote: function (i) {
       let voto = this.listaFilm[i].vote_average;
       return Math.round(voto / 2);
     },
     //votoSerieTV
     voteTv: function (i) {
       let voto = this.listaSerieTv[i].vote_average;
+      return Math.round(voto / 2);
+    }, */
+
+    // funzione: arrotondare x eccesso e impostare voto  da 1 a 5
+    vote: function (voto) {
       return Math.round(voto / 2);
     },
   }

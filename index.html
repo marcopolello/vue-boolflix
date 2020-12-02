@@ -37,7 +37,8 @@
           </div>
           <!-- voti dei film -->
           <div class="voto">
-            {{filmVote(index)}}
+            <!-- filmVote(index) -->
+            {{vote(listaFilm[index].vote_average)}}
           </div>
 
       </div>
@@ -58,7 +59,8 @@
       </div>
       <!-- voti serieTv -->
       <div class="voto">
-        {{voteTv(index)}}
+        <!-- voteTv(index) -->
+        {{vote(listaSerieTv[index].vote_average)}}
       </div>
 
     </div>
