@@ -7,6 +7,8 @@ var app = new Vue({
     listaFilm: [],
     listaSerieTv: [],
     inputSearch: '',
+    stella: 'fas fa-star',
+    votoBasso: 'fas fa-star-half'
   },
   methods:{
     // chiamata API
@@ -22,20 +24,13 @@ var app = new Vue({
       this.listaSerieTv = responseTwo.data.results;
       })
     },
-    // votoFilm / 2 e arrotondato per eccesso
-    /* filmVote: function (i) {
-      let voto = this.listaFilm[i].vote_average;
-      return Math.round(voto / 2);
-    },
-    //votoSerieTV
-    voteTv: function (i) {
-      let voto = this.listaSerieTv[i].vote_average;
-      return Math.round(voto / 2);
-    }, */
-
-    // funzione: arrotondare x eccesso e impostare voto  da 1 a 5
     vote: function (voto) {
-      return Math.round(voto / 2);
+      let stelle = []; //andrà a contenere il numero esatto di stelle ad ogni ciclo
+      let length = Math.round(voto / 2); //voto corrisponde al voto dall'API
+      for (let i = 0; i < length; i++) {
+        stelle.push('stella'); //pusho elemento segna posto x stella
+      }
+      return stelle //mi torna sempre un array
     },
   }
 });
