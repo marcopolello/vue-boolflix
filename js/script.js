@@ -8,7 +8,8 @@ var app = new Vue({
     listaSerieTv: [],
     inputSearch: '',
     stella: 'fas fa-star',
-    votoBasso: 'fas fa-star-half'
+    votoBasso: 'fas fa-star-half',
+    urlImg: 'https://image.tmdb.org/t/p/w185/' //dimensione già inserita
   },
   methods:{
     // chiamata API
@@ -31,6 +32,16 @@ var app = new Vue({
         stelle.push('stella'); //pusho elemento segna posto x stella
       }
       return stelle // !!mi torna sempre un array
+    },
+    poster: function (i) {
+      var stringa = this.urlImg + this.listaFilm[i].poster_path;
+      // console.log(stringa);
+      return `background-image: url(${stringa})`
+    },
+    posterTv: function (i) {
+      var stringa = this.urlImg + this.listaSerieTv[i].poster_path;
+      // console.log(stringa);
+      return `background-image: url(${stringa})`
     },
   }
 });

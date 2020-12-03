@@ -26,51 +26,68 @@
       <div class="container_locandine">
 
         <!-- film -->
-        <div v-for="(film, index) in listaFilm" class="locandina">
-          <!-- titoli film -->
-          <div class="titolo">
-            {{listaFilm[index].title}}
-          </div>
-          <!-- titoli originali film -->
-          <div class="titolo_originale">
-            {{listaFilm[index].original_title}}
-          </div>
-          <!-- lingua originale dei film -->
-          <div class="lingua">
-            {{listaFilm[index].original_language}}
-          </div>
-          <!-- voti dei film -->
-          <div class="voto">
-            <i v-if="vote(listaFilm[index].vote_average).length > 1" :class="stella"
-            v-for="item in vote(listaFilm[index].vote_average)">
-            </i>
-            <i v-if="vote(listaFilm[index].vote_average).length < 1" :class="votoBasso"></i>
-            <!-- {{ vote(listaFilm[index].vote_average) }} -->
+        <div v-for="(film, index) in listaFilm" class="locandina" :style="poster(index)">
+          <!-- <img :src="poster(index)" alt=""> ALTERNATIVA SE VOGLIO IMG IN HTML-->
+
+          <!-- blocco che compare all'hover FILM!! -->
+          <div class="rollHover">
+
+            <!-- titoli film -->
+            <div class="titolo">
+              {{listaFilm[index].title}}
+            </div>
+            <!-- titoli originali film -->
+            <div class="titolo_originale">
+              {{listaFilm[index].original_title}}
+            </div>
+            <!-- lingua originale dei film -->
+            <div class="lingua">
+              {{listaFilm[index].original_language}}
+            </div>
+            <!-- voti dei film -->
+            <div class="voto">
+              <i v-if="vote(listaFilm[index].vote_average).length > 1" :class="stella"
+              v-for="item in vote(listaFilm[index].vote_average)">
+              </i>
+              <i v-if="vote(listaFilm[index].vote_average).length < 1" :class="votoBasso"></i>
+              <!-- {{ vote(listaFilm[index].vote_average) }} -->
+            </div>
+
           </div>
 
-      </div>
 
-      <!-- serie Tv -->
-      <div v-for="(serie, index) in listaSerieTv" class="locandina tv">
-        <!-- titoli SerieTv -->
-        <div class="titolo">
-          {{listaSerieTv[index].name}}
         </div>
-        <!-- titoli originali SerieTv -->
-        <div class="titolo_originale">
-          {{listaSerieTv[index].original_name}}
-        </div>
-        <!-- lingua originale delle serieTv -->
-        <div class="lingua">
-          {{listaSerieTv[index].original_language}}
-        </div>
-        <!-- voti serieTv -->
-        <div class="voto">
-          <i v-if="vote(listaSerieTv[index].vote_average).length > 1" :class="stella"
-          v-for="item in vote(listaSerieTv[index].vote_average)">
-          </i>
-          <i v-if="vote(listaSerieTv[index].vote_average).length < 1" :class="votoBasso"></i>
-          <!-- {{vote(listaSerieTv[index].vote_average)}} -->
+
+        <!-- serie Tv -->
+        <div v-for="(serie, index) in listaSerieTv" class="locandina tv" :style="posterTv(index)">
+
+          <!-- blocco che compare all'hover SERIETV!! -->
+          <div class="rollHover">
+
+            <!-- titoli SerieTv -->
+            <div class="titolo">
+              {{listaSerieTv[index].name}}
+            </div>
+            <!-- titoli originali SerieTv -->
+            <div class="titolo_originale">
+              {{listaSerieTv[index].original_name}}
+            </div>
+            <!-- lingua originale delle serieTv -->
+            <div class="lingua">
+              {{listaSerieTv[index].original_language}}
+            </div>
+            <!-- voti serieTv -->
+            <div class="voto">
+              <i v-if="vote(listaSerieTv[index].vote_average).length > 1" :class="stella"
+              v-for="item in vote(listaSerieTv[index].vote_average)">
+              </i>
+              <i v-if="vote(listaSerieTv[index].vote_average).length < 1" :class="votoBasso"></i>
+              <!-- {{vote(listaSerieTv[index].vote_average)}} -->
+            </div>
+
+          </div>
+
+
         </div>
 
       </div>
