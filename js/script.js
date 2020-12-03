@@ -30,7 +30,7 @@ var app = new Vue({
       for (let i = 0; i < length; i++) {
         stelle.push('stella'); //pusho elemento segna posto x stella
       }
-      return stelle //mi torna sempre un array
+      return stelle // !!mi torna sempre un array
     },
   }
 });
