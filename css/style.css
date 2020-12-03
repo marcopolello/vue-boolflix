@@ -12,13 +12,16 @@
   height: 300px;
   border: 1px solid black;
   margin: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .locandina div{
   margin-bottom: 10px;
 }
 /* .tv{
   background-color: red;
-} DEBUG x serie tv  */
+} debug x serie tv  */
 .rollHover{
   display: none
 }

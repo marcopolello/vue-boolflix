@@ -9,7 +9,8 @@ var app = new Vue({
     inputSearch: '',
     stella: 'fas fa-star',
     votoBasso: 'fas fa-star-half',
-    urlImg: 'https://image.tmdb.org/t/p/w185/' //dimensione già inserita
+    urlImg: 'https://image.tmdb.org/t/p/w185/', //dimensione già inserita
+    no_path: `background-image: url('https://www.nerdoverdose.com/thumbs/1200x1200%3E-0751/462924_1200x1200%3E-0751_Keep_Calm_force.jpg')`
   },
   methods:{
     // chiamata API
@@ -34,13 +35,21 @@ var app = new Vue({
       return stelle // !!mi torna sempre un array
     },
     poster: function (i) {
-      var stringa = this.urlImg + this.listaFilm[i].poster_path;
+      let select = this.listaFilm[i].poster_path;
+      let stringa = this.urlImg + select;
       // console.log(stringa);
+      if (select == null) {
+        return this.no_path
+      }
       return `background-image: url(${stringa})`
     },
     posterTv: function (i) {
-      var stringa = this.urlImg + this.listaSerieTv[i].poster_path;
+      let select = this.listaSerieTv[i].poster_path;
+      let stringa = this.urlImg + select;
       // console.log(stringa);
+      if (select == null) {
+        return this.no_path
+      }
       return `background-image: url(${stringa})`
     },
   }
