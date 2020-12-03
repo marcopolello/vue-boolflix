@@ -52,5 +52,38 @@ var app = new Vue({
       }
       return `background-image: url(${stringa})`
     },
+    arrayUnico: function () {
+      let arrayUnico = this.listaFilm.concat(this.listaSerieTv)
+      console.log(arrayUnico);
+    }, // mi servirà x unire le funzioni
+    bandiera: function (index) {
+      // let bandiera = 'https://www.countryflags.io/EU/shiny/64.png'
+      let language = this.listaFilm[index].original_language;
+      console.log(typeof(language), language);
+      switch (language) {
+        case language == "fr":
+          return flag = 'https://www.countryflags.io/FR/shiny/64.png'
+          break;
+        case language == 'it':
+        return flag = 'https://www.countryflags.io/IT/shiny/64.png'
+          break;
+        case language == "en":
+        return flag = 'https://www.countryflags.io/EN/shiny/64.png'
+          break;
+        case language == 'es':
+        return flag = 'https://www.countryflags.io/ES/shiny/64.png'
+          break;
+        case language == 'pt':
+        return flag = 'https://www.countryflags.io/PT/shiny/64.png'
+          break;
+        case language == 'de':
+          return flag = 'https://www.countryflags.io/DE/shiny/64.png'
+          break;
+        case language == 'jp':
+          return flag = 'https://www.countryflags.io/JP/shiny/64.png'
+          break;
+        default: return 'https://www.countryflags.io/EU/shiny/64.png'
+      }
+    }
   }
 });
