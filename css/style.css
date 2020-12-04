@@ -2,9 +2,49 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif;
 }
-.container_locandine{
+body{
+  background-image: url(../img/background.jpg);
+}
+header{
+  background-color: black;
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  min-height: 130px;
+}
+#container_header{
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+.searchbar{
+  margin: 10px 50px 10px 10px;
+}
+.searchbar input{
+  margin-top: 20px;
+  width: 600px;
+  height: 80px;
+  background-color: black;
+  padding: 15px;
+  font-size: 22px;
+  color: red;
+  text-align: center;
+  text-transform: uppercase;
+  border-style: solid;
+  border-width: 10px;
+  border-color: #b80000;
+  box-shadow:inset 0px 0px 12px 0px rgba(196,128,128,.75);
+  shadow:15px 0px 11px rgba(42,42,42,.100);
+}
+
+#container_locandine{
+  padding-top: 130px;
+  padding-left: 60px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 .locandina{
@@ -23,6 +63,125 @@
   background-color: red;
 } debug x serie tv  */
 
-/* .rollHover{
-  display: none
-} */
+.rollHover{
+  display: none;
+  height: 100%;
+  background-color: white;
+}
+.locandina:hover .rollHover{
+  display: block;
+}
+.overview{
+  max-height: 100%;
+}
+.overview p{
+  text-overflow: ellipsis;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 100px;
+}
+.overview p::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+/* logo neon */
+#neon{
+  position: relative;
+  display: inline-block;
+  padding: 20px 30px 30px;
+  margin: 10px 10px 10px 50px;
+  height: 60px;
+  color: red;
+  font-size: 24px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 3px;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+#neon:nth-child(1){
+  filter: hue-rotate(180deg);
+}
+#neon:hover{
+  background: red;
+  color: black;
+  box-shadow: 0 0 5px red, 0 0 25px red, 0 0 100px red, 0 0 200px red;
+}
+
+/* bordi */
+#neon span{
+  position: absolute;
+  display: block;
+}
+/* animazione bordi */
+#neon span:nth-child(1){
+  top: 0;
+  left: -100;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(180deg,transparent,red);
+  animation: animate1 1s linear infinite;
+}
+@keyframes animate1{
+0%{
+left: -100%;
+}
+50%, 100%{
+left: 100%;
+}
+}
+#neon span:nth-child(2){
+top: -100%;
+right: 0;
+width: 2px;
+height: 100%;
+background: linear-gradient(180deg,transparent,red);
+animation: animate2 1s linear infinite;
+animation-delay: 0.25s;
+}
+@keyframes animate2{
+0%{
+top: -100%;
+}
+50%, 100%{
+top: 100%;
+}
+}
+#neon span:nth-child(3){
+bottom: 0;
+right: -100%;
+width: 100%;
+height: 2px;
+background: linear-gradient(270deg,transparent,red);
+animation: animate3 1s linear infinite;
+animation-delay: 0.25s;
+}
+@keyframes animate3{
+0%{
+right: -100%;
+}
+50%, 100%{
+right: 100%;
+}
+}
+
+#neon span:nth-child(4){
+bottom: -100%;
+left: 0;
+width: 2px;
+height: 100%;
+background: linear-gradient(360deg,transparent,red);
+animation: animate4 1s linear infinite;
+animation-delay: 0.75s;
+}
+@keyframes animate4{
+0%{
+  bottom: -100%;
+}
+50%, 100%{
+bottom: 100%;
+}
+}
