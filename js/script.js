@@ -6,6 +6,7 @@ var app = new Vue({
     api_key: '295f81ea91a932d66a84c22c7c2f5ec6',
     listaFilm: [],
     listaSerieTv: [],
+    arrayUnico: [],
     inputSearch: '',
     stella: 'fas fa-star',
     votoBasso: 'fas fa-star-half',
@@ -20,10 +21,13 @@ var app = new Vue({
       // richiesta API x film
       requestOne.then(responseOne => {
       this.listaFilm = responseOne.data.results;
+      this.arrayUnico = responseOne.data.results;
       })
       // richiesta API x serietv
       requestTwo.then(responseTwo => {
       this.listaSerieTv = responseTwo.data.results;
+      this.arrayUnico.concat(this.listaSerieTv)
+      console.log(this.arrayUnico);
       })
     },
     vote: function (voto) {
@@ -52,35 +56,70 @@ var app = new Vue({
       }
       return `background-image: url(${stringa})`
     },
-    arrayUnico: function () {
-      let arrayUnico = this.listaFilm.concat(this.listaSerieTv)
-      console.log(arrayUnico);
-    }, // mi servirà x unire le funzioni
     bandiera: function (index) {
-      // let bandiera = 'https://www.countryflags.io/EU/shiny/64.png'
       let language = this.listaFilm[index].original_language;
-      console.log(typeof(language), language);
+      // console.log(typeof(language), language);
       switch (language) {
-        case language == "fr":
-          return flag = 'https://www.countryflags.io/FR/shiny/64.png'
+        case "fr":
+          return 'https://www.countryflags.io/FR/shiny/64.png'
           break;
-        case language == 'it':
-        return flag = 'https://www.countryflags.io/IT/shiny/64.png'
+        case "it":
+          return 'https://www.countryflags.io/IT/shiny/64.png'
           break;
-        case language == "en":
-        return flag = 'https://www.countryflags.io/EN/shiny/64.png'
+        case "en":
+          return 'https://www.countryflags.io/GB/shiny/64.png'
           break;
-        case language == 'es':
-        return flag = 'https://www.countryflags.io/ES/shiny/64.png'
+        case "es":
+          return 'https://www.countryflags.io/ES/shiny/64.png'
           break;
-        case language == 'pt':
-        return flag = 'https://www.countryflags.io/PT/shiny/64.png'
+        case "pt":
+          return 'https://www.countryflags.io/PT/shiny/64.png'
           break;
-        case language == 'de':
-          return flag = 'https://www.countryflags.io/DE/shiny/64.png'
+        case "de":
+          return 'https://www.countryflags.io/DE/shiny/64.png'
           break;
-        case language == 'jp':
-          return flag = 'https://www.countryflags.io/JP/shiny/64.png'
+        case "jp":
+          return 'https://www.countryflags.io/JP/shiny/64.png'
+          break;
+        case "sv":
+          return 'https://www.countryflags.io/SV/shiny/64.png'
+          break;
+        case "sv":
+          return 'https://www.countryflags.io/SV/shiny/64.png'
+          break;
+        default: return 'https://www.countryflags.io/EU/shiny/64.png'
+      }
+    },
+    bandieraTv: function (index) {
+      let language = this.listaSerieTv[index].original_language;
+      // console.log(typeof(language), language);
+      switch (language) {
+        case "fr":
+          return 'https://www.countryflags.io/FR/shiny/64.png'
+          break;
+        case "it":
+          return 'https://www.countryflags.io/IT/shiny/64.png'
+          break;
+        case "en":
+          return 'https://www.countryflags.io/GB/shiny/64.png'
+          break;
+        case "es":
+          return 'https://www.countryflags.io/ES/shiny/64.png'
+          break;
+        case "pt":
+          return 'https://www.countryflags.io/PT/shiny/64.png'
+          break;
+        case "de":
+          return 'https://www.countryflags.io/DE/shiny/64.png'
+          break;
+        case "jp":
+          return 'https://www.countryflags.io/JP/shiny/64.png'
+          break;
+        case "sv":
+          return 'https://www.countryflags.io/SV/shiny/64.png'
+          break;
+        case "sv":
+          return 'https://www.countryflags.io/SV/shiny/64.png'
           break;
         default: return 'https://www.countryflags.io/EU/shiny/64.png'
       }
