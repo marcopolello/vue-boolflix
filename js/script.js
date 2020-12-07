@@ -13,8 +13,6 @@ var app = new Vue({
     votoBasso: 'fas fa-star-half',
     urlImg: 'https://image.tmdb.org/t/p/w185/', //dimensione già inserita
     no_path: `background-image: url('https://www.nerdoverdose.com/thumbs/1200x1200%3E-0751/462924_1200x1200%3E-0751_Keep_Calm_force.jpg')`,
-    movieGeneri: [],
-    serieTvGeneri: [],
   },
   // caricamento pagina
   created: function () {
@@ -153,6 +151,10 @@ var app = new Vue({
           break;
         default: return 'https://www.countryflags.io/EU/shiny/64.png'
       }
+    },
+    home: function () {
+      location.reload();
+      return false;
     }
   }
 });

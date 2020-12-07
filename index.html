@@ -26,7 +26,7 @@
 
           </div>
 
-          <a id="neon">
+          <a @click="home()" id="neon">
             <span></span>
             <span></span>
             <span></span>
@@ -44,6 +44,7 @@
         <!-- film -->
         <div v-for="(film, index) in listaFilm" class="locandina" :style="poster(index)">
           <!-- <img :src="poster(index)" alt=""> ALTERNATIVA SE VOGLIO IMG IN HTML-->
+          <span class="whichkind">Film</span>
 
           <!-- blocco che compare all'hover FILM!! -->
           <div class="rollHover">
@@ -81,6 +82,7 @@
 
         <!-- serie Tv -->
         <div v-for="(serie, index) in listaSerieTv" class="locandina tv" :style="posterTv(index)">
+          <span class="whichkind">SerieTv</span>
 
           <!-- blocco che compare all'hover SERIETV!! -->
           <div class="rollHover">
