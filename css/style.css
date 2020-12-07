@@ -38,7 +38,7 @@ header{
   box-shadow:inset 0px 0px 12px 0px rgba(196,128,128,.75);
   shadow:15px 0px 11px rgba(42,42,42,.100);
 }
-
+/* contenitore di tutte le locandine(Tv e film) */
 #container_locandine{
   padding-top: 130px;
   padding-left: 60px;
@@ -47,28 +47,30 @@ header{
   flex-direction: row;
   flex-wrap: wrap;
 }
+/* ogni singola locandina */
 .locandina{
   width: calc(100% / 6);
   height: 300px;
-  border: 1px solid black;
+  border: 1px solid red;
+  border-radius: 5px;
   margin: 10px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .locandina div{
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 }
-/* .tv{
-  background-color: red;
-} debug x serie tv  */
-
+/* pagina dietro alla copertina che si mostra all'hover */
 .rollHover{
   display: none;
   height: 100%;
   background-color: black;
   color: red;
   text-align: center;
+}
+.rollHover h5{
+  color: #7f0000;
 }
 .locandina:hover .rollHover{
   display: block;
@@ -84,14 +86,19 @@ header{
   overflow-y: scroll;
   overflow-x: hidden;
   max-height: 100px;
+  padding: 5px;
+  text-align: justify;
 }
 .overview p::-webkit-scrollbar {
   display: none;
 }
+.lingua > img{
+  width: 40px;
+  height: 35px;
+}
 
 
-
-/* logo neon */
+/* logo neon BOOLFLIX */
 #neon{
   position: relative;
   display: inline-block;
@@ -115,7 +122,6 @@ header{
   color: black;
   box-shadow: 0 0 5px red, 0 0 25px red, 0 0 100px red, 0 0 200px red;
 }
-
 /* bordi */
 #neon span{
   position: absolute;

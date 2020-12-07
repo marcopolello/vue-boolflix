@@ -50,15 +50,16 @@
 
             <!-- titoli film -->
             <div class="titolo">
-              {{listaFilm[index].title}}
+              <h5>Titolo:</h5>{{listaFilm[index].title}}
             </div>
             <!-- titoli originali film -->
             <div class="titolo_originale">
-              {{listaFilm[index].original_title}}
+              <h5>Titolo originale:</h5>{{listaFilm[index].original_title}}
             </div>
             <!-- lingua originale dei film -->
             <div class="lingua">
-              {{listaFilm[index].original_language}}
+              <h5>Lingua originale:</h5>
+              <!-- {{listaFilm[index].original_language}} -->
               <img :src="bandiera(index)" alt="">
             </div>
             <!-- voti dei film -->
@@ -86,15 +87,18 @@
 
             <!-- titoli SerieTv -->
             <div class="titolo">
+              <h5>Titolo:</h5>
               {{listaSerieTv[index].name}}
             </div>
             <!-- titoli originali SerieTv -->
             <div class="titolo_originale">
+              <h5>Titolo originale:</h5>
               {{listaSerieTv[index].original_name}}
             </div>
             <!-- lingua originale delle serieTv -->
             <div class="lingua">
-              {{listaSerieTv[index].original_language}}
+              <h5>Lingua originale:</h5>
+              <!-- {{listaSerieTv[index].original_language}} -->
               <img :src="bandieraTv(index)" alt="">
             </div>
             <!-- voti serieTv -->
@@ -104,6 +108,9 @@
               </i>
               <i v-if="vote(listaSerieTv[index].vote_average).length < 1" :class="votoBasso"></i>
               <!-- {{vote(listaSerieTv[index].vote_average)}} -->
+            </div>
+            <div class="overview">
+              <p>{{listaSerieTv[index].overview}}</p>
             </div>
 
           </div>

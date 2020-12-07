@@ -13,21 +13,31 @@ var app = new Vue({
     urlImg: 'https://image.tmdb.org/t/p/w185/', //dimensione già inserita
     no_path: `background-image: url('https://www.nerdoverdose.com/thumbs/1200x1200%3E-0751/462924_1200x1200%3E-0751_Keep_Calm_force.jpg')`
   },
+  // caricamento pagina
+  created: function () {
+    const request = axios.get(this.urlmovie + this.api_key + '&language=it_IT&query=' + "lord");
+    request.then(response => {
+    this.listaFilm = response.data.results;
+    })
+  },
   methods:{
     // chiamata API
     search: function () {
+      if (this.inputSearch === '') {
+        alert("scrivi il titolo di un Film o una serie Tv");
+      }
       const requestOne = axios.get(this.urlmovie + this.api_key + '&language=it_IT&query=' + this.inputSearch);
       const requestTwo = axios.get(this.urltv + this.api_key + '&language=it_IT&query=' + this.inputSearch);
       // richiesta API x film
       requestOne.then(responseOne => {
       this.listaFilm = responseOne.data.results;
-      this.arrayUnico = responseOne.data.results;
+      //this.arrayUnico = responseOne.data.results;
       })
       // richiesta API x serietv
       requestTwo.then(responseTwo => {
       this.listaSerieTv = responseTwo.data.results;
-      this.arrayUnico.concat(this.listaSerieTv)
-      console.log(this.arrayUnico);
+      //this.arrayUnico.concat(this.listaSerieTv)
+      //console.log(this.arrayUnico);
       })
     },
     vote: function (voto) {
