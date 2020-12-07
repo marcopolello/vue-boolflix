@@ -4,6 +4,7 @@ var app = new Vue({
     urlmovie: 'https://api.themoviedb.org/3/search/movie/?api_key=',
     urltv: 'https://api.themoviedb.org/3/search/tv/?api_key=',
     api_key: '295f81ea91a932d66a84c22c7c2f5ec6',
+    language: 'it-IT',
     listaFilm: [],
     listaSerieTv: [],
     arrayUnico: [],
@@ -11,14 +12,33 @@ var app = new Vue({
     stella: 'fas fa-star',
     votoBasso: 'fas fa-star-half',
     urlImg: 'https://image.tmdb.org/t/p/w185/', //dimensione già inserita
-    no_path: `background-image: url('https://www.nerdoverdose.com/thumbs/1200x1200%3E-0751/462924_1200x1200%3E-0751_Keep_Calm_force.jpg')`
+    no_path: `background-image: url('https://www.nerdoverdose.com/thumbs/1200x1200%3E-0751/462924_1200x1200%3E-0751_Keep_Calm_force.jpg')`,
+    movieGeneri: [],
+    serieTvGeneri: [],
   },
   // caricamento pagina
   created: function () {
-    const request = axios.get(this.urlmovie + this.api_key + '&language=it_IT&query=' + "lord");
-    request.then(response => {
-    this.listaFilm = response.data.results;
-    })
+    //https://vuejsdevelopers.com/2019/01/22/vue-what-is-next-tick/
+    this.$nextTick(function () {
+
+      // parametri da passare alle chiamate
+      const params = {api_key: this.api_key,language: this.language};
+
+      // film popolari
+      const filmPopolari = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&include_adult=false&include_video=false&page=1';
+      axios.get(filmPopolari, {params})
+      .then(response => {
+        //console.log(response);
+        this.listaFilm = response.data.results;
+      });
+
+      // serieTv popolari
+      const serieTvPopolari = 'https://api.themoviedb.org/3/discover/tv?sort_by=popularity.desc&include_adult=false&include_video=false&page=1';
+      axios.get(serieTvPopolari, {params})
+      .then(response => {
+        this.listaSerieTv = response.data.results;
+      });
+    });
   },
   methods:{
     // chiamata API
