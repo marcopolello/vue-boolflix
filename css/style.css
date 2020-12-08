@@ -41,7 +41,7 @@ header{
 /* contenitore di tutte le locandine(Tv e film) */
 #container_locandine{
   padding-top: 130px;
-  padding-left: 60px;
+  padding-left: 80px;
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
@@ -213,4 +213,33 @@ animation-delay: 0.75s;
 50%, 100%{
 bottom: 100%;
 }
+}
+
+
+
+/* MEDIA QUERIES */
+
+/* device tablet/mobile phone */
+@media all and (min-width: 100px) and (max-width: 465px) {
+  #container_locandine{
+    padding-left: 150px;
+  }
+  .locandina{
+    width: calc(100%);
+  }
+  .searchbar input{
+    width: 250px;
+  }
+}
+/* device tablet/notebook */
+@media all and (min-width: 466px) and (max-width: 991px) {
+  #container_locandine{
+    padding-left: 130px;
+  }
+  .locandina{
+    width: calc(100% / 4);
+  }
+  .searchbar input{
+    width: 450px;
+  }
 }
