@@ -20,7 +20,7 @@ var app = new Vue({
     this.$nextTick(function () {
 
       // parametri da passare alle chiamate
-      const params = {api_key: this.api_key,language: this.language};
+      const params = {api_key: this.api_key, language: this.language};
 
       // film popolari
       const filmPopolari = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&include_adult=false&include_video=false&page=1';
