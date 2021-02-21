@@ -50,8 +50,8 @@ header{
 /* ogni singola locandina */
 /* cambiato dim, prima ewrano 100%/6 e 300 */
 .locandina{
-  width: calc(100% / 10);
-  height: 280px;
+  width: calc(100% / 7);
+  height: 300px;
   border: 1px solid red;
   border-radius: 5px;
   margin: 10px;
